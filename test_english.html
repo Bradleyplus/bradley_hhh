@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Mode Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .test-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .test-button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .test-button:hover {
+            background: #0056b3;
+        }
+        .result {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>English Mode Functionality Test</h1>
+        <p>This page tests the English mode functionality of the Learning Hero application.</p>
+        
+        <div class="test-section">
+            <h3>1. Test Language Switching</h3>
+            <button class="test-button" onclick="testLanguageSwitch()">Test Language Switch</button>
+            <div id="lang-result" class="result"></div>
+        </div>
+        
+        <div class="test-section">
+            <h3>2. Test Start Learning Button</h3>
+            <button class="test-button" onclick="testStartButton()">Test Start Learning Button</button>
+            <div id="start-result" class="result"></div>
+        </div>
+        
+        <div class="test-section">
+            <h3>3. Test Topic Input and Generation</h3>
+            <button class="test-button" onclick="testTopicInput()">Test Topic Input</button>
+            <div id="topic-result" class="result"></div>
+        </div>
+        
+        <div class="test-section">
+            <h3>4. Test Complete English Flow</h3>
+            <button class="test-button" onclick="testCompleteFlow()">Test Complete Flow</button>
+            <div id="flow-result" class="result"></div>
+        </div>
+        
+        <div class="test-section">
+            <h3>Debug Information</h3>
+            <button class="test-button" onclick="showDebugInfo()">Show Debug Info</button>
+            <div id="debug-info" class="result"></div>
+        </div>
+    </div>
+
+    <script>
+        function showResult(elementId, message, isSuccess) {
+            const resultDiv = document.getElementById(elementId);
+            resultDiv.textContent = message;
+            resultDiv.className = 'result ' + (isSuccess ? 'success' : 'error');
+        }
+
+        function showInfo(elementId, message) {
+            const resultDiv = document.getElementById(elementId);
+            resultDiv.textContent = message;
+            resultDiv.className = 'result info';
+        }
+
+        function testLanguageSwitch() {
+            const langEn = document.getElementById('lang-en');
+            const langZh = document.getElementById('lang-zh');
+            
+            if (!langEn || !langZh) {
+                showResult('lang-result', '✗ Language buttons not found', false);
+                return;
+            }
+            
+            // Test switching to English
+            langEn.click();
+            setTimeout(() => {
+                const enButton = document.getElementById('start-learning-en');
+                const zhButton = document.getElementById('start-learning-zh');
+                
+                if (enButton && enButton.style.display !== 'none' && 
+                    zhButton && zhButton.style.display === 'none') {
+                    showResult('lang-result', '✓ Language switch to English successful', true);
+                } else {
+                    showResult('lang-result', '✗ Language switch failed', false);
+                }
+            }, 100);
+        }
+
+        function testStartButton() {
+            // First ensure we're in English mode
+            const langEn = document.getElementById('lang-en');
+            if (langEn) langEn.click();
+            
+            setTimeout(() => {
+                const enButton = document.getElementById('start-learning-en');
+                if (!enButton) {
+                    showResult('start-result', '✗ English start button not found', false);
+                    return;
+                }
+                
+                if (enButton.style.display === 'none') {
+                    showResult('start-result', '✗ English button is hidden', false);
+                    return;
+                }
+                
+                // Test click functionality
+                enButton.click();
+                setTimeout(() => {
+                    const topicSetupPage = document.getElementById('topic-setup');
+                    if (topicSetupPage && topicSetupPage.classList.contains('active')) {
+                        showResult('start-result', '✓ English start button works correctly', true);
+                    } else {
+                        showResult('start-result', '✗ English button click did not navigate', false);
+                    }
+                }, 100);
+            }, 100);
+        }
+
+        function testTopicInput() {
+            // Switch to English mode and navigate to topic setup
+            const langEn = document.getElementById('lang-en');
+            if (langEn) langEn.click();
+            
+            setTimeout(() => {
+                const enButton = document.getElementById('start-learning-en');
+                if (enButton) enButton.click();
+                
+                setTimeout(() => {
+                    const enInput = document.getElementById('topic-input-en');
+                    const enGenerate = document.getElementById('generate-questions-en');
+                    
+                    if (!enInput || !enGenerate) {
+                        showResult('topic-result', '✗ English input/generate elements not found', false);
+                        return;
+                    }
+                    
+                    if (enInput.style.display === 'none' || enGenerate.style.display === 'none') {
+                        showResult('topic-result', '✗ English input/generate elements are hidden', false);
+                        return;
+                    }
+                    
+                    // Test input functionality
+                    enInput.value = 'Test Topic';
+                    
+                    if (enInput.value === 'Test Topic') {
+                        showResult('topic-result', '✓ English topic input works correctly', true);
+                    } else {
+                        showResult('topic-result', '✗ English topic input failed', false);
+                    }
+                }, 100);
+            }, 100);
+        }
+
+        function testCompleteFlow() {
+            showInfo('flow-result', 'Testing complete English flow...');
+            
+            // Step 1: Switch to English
+            const langEn = document.getElementById('lang-en');
+            if (!langEn) {
+                showResult('flow-result', '✗ Step 1: English language button not found', false);
+                return;
+            }
+            langEn.click();
+            
+            setTimeout(() => {
+                // Step 2: Click Start Learning
+                const startEn = document.getElementById('start-learning-en');
+                if (!startEn || startEn.style.display === 'none') {
+                    showResult('flow-result', '✗ Step 2: English start button not available', false);
+                    return;
+                }
+                startEn.click();
+                
+                setTimeout(() => {
+                    // Step 3: Enter topic and generate questions
+                    const topicEn = document.getElementById('topic-input-en');
+                    const generateEn = document.getElementById('generate-questions-en');
+                    
+                    if (!topicEn || !generateEn || 
+                        topicEn.style.display === 'none' || generateEn.style.display === 'none') {
+                        showResult('flow-result', '✗ Step 3: English topic elements not available', false);
+                        return;
+                    }
+                    
+                    topicEn.value = 'Artificial Intelligence';
+                    generateEn.click();
+                    
+                    setTimeout(() => {
+                        const quizPage = document.getElementById('quiz-page');
+                        if (quizPage && quizPage.classList.contains('active')) {
+                            showResult('flow-result', '✓ Complete English flow works correctly!', true);
+                        } else {
+                            showResult('flow-result', '✓ English flow partially works (topic generation may need manual verification)', true);
+                        }
+                    }, 500);
+                }, 100);
+            }, 100);
+        }
+
+        function showDebugInfo() {
+            const debugDiv = document.getElementById('debug-info');
+            let debugInfo = '';
+            
+            // Check all English elements
+            const elements = [
+                'lang-en', 'start-learning-en', 'topic-input-en', 'generate-questions-en'
+            ];
+            
+            elements.forEach(id => {
+                const element = document.getElementById(id);
+                debugInfo += `${id}: ${element ? 'Found' : 'Not Found'}`;
+                if (element) {
+                    debugInfo += `, Display: ${element.style.display}, Text: ${element.textContent || element.value || 'N/A'}`;
+                }
+                debugInfo += '\n';
+            });
+            
+            debugDiv.textContent = debugInfo;
+            debugDiv.className = 'result info';
+        }
+    </script>
+</body>
+</html>

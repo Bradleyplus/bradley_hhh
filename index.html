@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学习英雄 - AI问答引导式学习</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Open Graph 标签 -->
+    <meta property="og:title" content="学习英雄 - AI问答引导式学习">
+    <meta property="og:description" content="AI问答引导式学习平台，通过闯关答题的形式引导用户更轻松愉快地掌握知识。">
+    <meta property="og:url" content="http://localhost:8000">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://via.placeholder.com/600x300?text=Learning+Hero">
+    
+    <!-- 微信专有标签 -->
+    <meta name="wechat-share-title" content="学习英雄 - AI问答引导式学习">
+    <meta name="wechat-share-desc" content="AI问答引导式学习平台，通过闯关答题的形式引导用户更轻松愉快地掌握知识。">
+    <meta name="wechat-share-img" content="https://via.placeholder.com/600x300?text=Learning+Hero">
+    <meta name="wechat-share-link" content="http://localhost:8000">
+</head>
+<body>
+    <div class="app-container">
+        <!-- 语言切换按钮 -->
+        <div class="language-switcher">
+            <button id="lang-zh" class="lang-btn active">中文</button>
+            <button id="lang-en" class="lang-btn">English</button>
+        </div>
+
+        <!-- 欢迎页面 -->
+        <div id="welcome-page" class="page active">
+            <div class="hero-section">
+                <div class="hero-icon">🎓</div>
+                <h1 class="hero-title" data-lang="zh">学习英雄</h1>
+                <h1 class="hero-title" data-lang="en" style="display: none;">Learning Hero</h1>
+                <p class="hero-subtitle" data-lang="zh">AI问答引导式学习平台</p>
+                <p class="hero-subtitle" data-lang="en" style="display: none;">AI-Powered Interactive Learning Platform</p>
+                <button id="start-learning-zh" class="cta-button" data-lang="zh">开始学习</button>
+                <button id="start-learning-en" class="cta-button" data-lang="en" style="display: none;">Start Learning</button>
+            </div>
+        </div>
+
+        <!-- 主题设置页面 -->
+        <div id="topic-setup" class="page">
+            <div class="setup-container">
+                <h2 data-lang="zh">设置学习主题</h2>
+                <h2 data-lang="en" style="display: none;">Set Learning Topic</h2>
+                
+                <div class="input-group">
+                    <input type="text" id="topic-input-zh" placeholder="输入你想学习的主题..." data-lang="zh">
+                    <input type="text" id="topic-input-en" placeholder="Enter your learning topic..." data-lang="en" style="display: none;">
+                    <button id="generate-questions-zh" class="generate-btn" data-lang="zh">生成问答卡片</button>
+                    <button id="generate-questions-en" class="generate-btn" data-lang="en" style="display: none;">Generate Q&A Cards</button>
+                </div>
+
+                <div class="topic-examples">
+                    <h3 data-lang="zh">热门主题示例</h3>
+                    <h3 data-lang="en" style="display: none;">Popular Topics</h3>
+                    <div class="example-tags">
+                        <!-- 中文主题标签 -->
+                        <span class="tag" data-lang="zh" data-topic="人工智能基础">人工智能基础</span>
+                        <span class="tag" data-lang="zh" data-topic="世界历史">世界历史</span>
+                        <span class="tag" data-lang="zh" data-topic="编程入门">编程入门</span>
+                        <span class="tag" data-lang="zh" data-topic="生物科学">生物科学</span>
+                        <span class="tag" data-lang="zh" data-topic="金融知识">金融知识</span>
+                        
+                        <!-- 英文主题标签 -->
+                        <span class="tag" data-lang="en" style="display: none;" data-topic="人工智能基础">Artificial Intelligence Basics</span>
+                        <span class="tag" data-lang="en" style="display: none;" data-topic="世界历史">World History</span>
+                        <span class="tag" data-lang="en" style="display: none;" data-topic="编程入门">Programming Basics</span>
+                        <span class="tag" data-lang="en" style="display: none;" data-topic="生物科学">Biological Science</span>
+                        <span class="tag" data-lang="en" style="display: none;" data-topic="金融知识">Financial Knowledge</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 答题页面 -->
+        <div id="quiz-page" class="page">
+            <div class="quiz-container">
+                <div class="quiz-header">
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <div class="quiz-info">
+                        <span class="current-question" data-lang="zh">问题 <span id="current-num">1</span>/<span id="total-questions">5</span></span>
+                        <span class="current-question" data-lang="en" style="display: none;">Question <span id="current-num">1</span>/<span id="total-questions">5</span></span>
+                        <span class="score" data-lang="zh">得分: <span id="score">0</span></span>
+                        <span class="score" data-lang="en" style="display: none;">Score: <span id="score">0</span></span>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-content">
+                        <h3 id="question-text">问题内容将显示在这里</h3>
+                        <div id="options-container" class="options">
+                            <!-- 选项将通过JavaScript动态生成 -->
+                        </div>
+                    </div>
+                    <div class="quiz-actions">
+                    <button id="next-question-zh" class="quiz-btn" data-lang="zh" disabled>下一题</button>
+                    <button id="next-question-en" class="quiz-btn" data-lang="en" style="display: none;" disabled>Next</button>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 结果页面 -->
+        <div id="result-page" class="page">
+            <div class="result-container">
+                <div class="result-icon">🏆</div>
+                <h2 data-lang="zh">学习完成！</h2>
+                <h2 data-lang="en" style="display: none;">Learning Complete!</h2>
+                
+                <div class="score-display">
+                    <div class="final-score" data-lang="zh">最终得分: <span id="final-score">0</span>/<span id="max-score">0</span></div>
+                    <div class="final-score" data-lang="en" style="display: none;">Final Score: <span id="final-score">0</span>/<span id="max-score">0</span></div>
+                    <div class="accuracy" data-lang="zh">正确率: <span id="accuracy">0</span>%</div>
+                    <div class="accuracy" data-lang="en" style="display: none;">Accuracy: <span id="accuracy">0</span>%</div>
+                </div>
+
+                <div class="result-actions">
+                    <button id="restart-quiz-zh" class="result-btn" data-lang="zh">重新开始</button>
+                    <button id="restart-quiz-en" class="result-btn" data-lang="en" style="display: none;">Restart</button>
+                    <button id="new-topic-zh" class="result-btn secondary" data-lang="zh">新主题</button>
+                    <button id="new-topic-en" class="result-btn secondary" data-lang="en" style="display: none;">New Topic</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js?v=1.0.7"></script>
+</body>
+</html>

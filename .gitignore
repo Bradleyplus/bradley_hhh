@@ -1,0 +1,30 @@
+# OS generated files
+Thumbs.db
+.DS_Store
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Log files
+*.log
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Dependency directories (if any)
+node_modules/
+bower_components/
+
+# Build outputs (if any)
+dist/
+build/
+
+# Temporary files
+*.tmp
+*.temp

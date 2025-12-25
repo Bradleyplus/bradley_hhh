@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test English Mode</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .test-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .test-button:hover {
+            background: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>测试英文模式功能</h1>
+        <p>点击下面的按钮来测试英文模式下的功能：</p>
+        
+        <button class="test-button" onclick="testEnglishButton()">测试英文按钮</button>
+        <button class="test-button" onclick="testLanguageSwitch()">测试语言切换</button>
+        <button class="test-button" onclick="testPageNavigation()">测试页面导航</button>
+        
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        function showResult(message, isSuccess) {
+            const resultDiv = document.getElementById('result');
+            resultDiv.textContent = message;
+            resultDiv.className = 'result ' + (isSuccess ? 'success' : 'error');
+        }
+
+        function testEnglishButton() {
+            // 模拟切换到英文模式
+            const enButton = document.getElementById('start-learning-en');
+            if (enButton) {
+                showResult('✓ 英文按钮存在: ' + enButton.textContent, true);
+                
+                // 测试按钮是否可点击
+                enButton.click();
+                setTimeout(() => {
+                    const topicSetupPage = document.getElementById('topic-setup');
+                    if (topicSetupPage && topicSetupPage.classList.contains('active')) {
+                        showResult('✓ 英文按钮点击成功，页面已切换到主题设置', true);
+                    } else {
+                        showResult('✗ 英文按钮点击后页面未切换', false);
+                    }
+                }, 100);
+            } else {
+                showResult('✗ 英文按钮不存在', false);
+            }
+        }
+
+        function testLanguageSwitch() {
+            // 测试语言切换功能
+            const langEn = document.getElementById('lang-en');
+            const langZh = document.getElementById('lang-zh');
+            
+            if (langEn && langZh) {
+                showResult('✓ 语言切换按钮存在', true);
+                
+                // 模拟点击英文按钮
+                langEn.click();
+                setTimeout(() => {
+                    const enButton = document.getElementById('start-learning-en');
+                    const zhButton = document.getElementById('start-learning-zh');
+                    
+                    if (enButton && enButton.style.display !== 'none' && 
+                        zhButton && zhButton.style.display === 'none') {
+                        showResult('✓ 语言切换成功 - 英文按钮显示，中文按钮隐藏', true);
+                    } else {
+                        showResult('✗ 语言切换失败', false);
+                    }
+                }, 100);
+            } else {
+                showResult('✗ 语言切换按钮不存在', false);
+            }
+        }
+
+        function testPageNavigation() {
+            // 测试页面导航功能
+            const welcomePage = document.getElementById('welcome-page');
+            const topicSetupPage = document.getElementById('topic-setup');
+            
+            if (welcomePage && topicSetupPage) {
+                showResult('✓ 页面元素存在', true);
+                
+                // 测试页面切换
+                showPage('topic-setup');
+                setTimeout(() => {
+                    if (topicSetupPage.classList.contains('active') && 
+                        !welcomePage.classList.contains('active')) {
+                        showResult('✓ 页面导航功能正常', true);
+                    } else {
+                        showResult('✗ 页面导航功能异常', false);
+                    }
+                }, 100);
+            } else {
+                showResult('✗ 页面元素不存在', false);
+            }
+        }
+
+        // 简单的页面切换函数（用于测试）
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
