@@ -1452,10 +1452,16 @@ function showLoading(show) {
 
 // 开始答题
 function startQuiz() {
+    console.log('=== startQuiz调试信息 ===');
+    console.log('当前语言:', appState.currentLanguage);
+    console.log('题目数量:', appState.questions.length);
+    
     appState.currentQuestionIndex = 0;
     appState.score = 0;
     appState.selectedOption = null;
     appState.isAnswered = false;
+    
+    console.log('分数已重置为:', appState.score);
     
     // 更新问题总数
     document.getElementById('total-questions').textContent = appState.questions.length;
@@ -1513,6 +1519,14 @@ function selectOption(optionIndex) {
     const question = appState.questions[appState.currentQuestionIndex];
     const options = document.querySelectorAll('.option');
     
+    // 调试信息：输出关键变量
+    console.log('=== selectOption调试信息 ===');
+    console.log('当前语言:', appState.currentLanguage);
+    console.log('选择选项索引:', optionIndex);
+    console.log('正确答案索引:', question.correctAnswer);
+    console.log('当前分数:', appState.score);
+    console.log('选项数量:', options.length);
+    
     // 标记选中的选项
     options.forEach((option, index) => {
         option.classList.remove('selected');
@@ -1524,8 +1538,10 @@ function selectOption(optionIndex) {
     // 检查答案并更新分数
     if (optionIndex === question.correctAnswer) {
         appState.score += 10;
+        console.log('答对了！新分数:', appState.score);
         options[optionIndex].classList.add('correct');
     } else {
+        console.log('答错了！正确答案是索引', question.correctAnswer);
         options[optionIndex].classList.add('incorrect');
         options[question.correctAnswer].classList.add('correct');
     }
@@ -1535,6 +1551,9 @@ function selectOption(optionIndex) {
     nextButtons.forEach(button => {
         button.disabled = false;
     });
+    
+    // 立即更新分数显示
+    document.getElementById('score').textContent = appState.score;
 }
 
 // 下一题
@@ -1552,11 +1571,23 @@ function nextQuestion() {
 
 // 显示结果
 function showResults() {
+    console.log('=== showResults调试信息 ===');
+    console.log('最终分数:', appState.score);
+    console.log('题目总数:', appState.questions.length);
+    console.log('当前语言:', appState.currentLanguage);
+    
     const accuracy = Math.round((appState.score / (appState.questions.length * 10)) * 100);
     
-    document.getElementById('final-score').textContent = appState.score;
-    document.getElementById('max-score').textContent = appState.questions.length * 10;
-    document.getElementById('accuracy').textContent = accuracy;
+    // 确保分数正确显示
+    const finalScoreElement = document.getElementById('final-score');
+    const maxScoreElement = document.getElementById('max-score');
+    const accuracyElement = document.getElementById('accuracy');
+    
+    if (finalScoreElement) finalScoreElement.textContent = appState.score;
+    if (maxScoreElement) maxScoreElement.textContent = appState.questions.length * 10;
+    if (accuracyElement) accuracyElement.textContent = accuracy + '%';
+    
+    console.log('显示的最终分数:', finalScoreElement ? finalScoreElement.textContent : '未找到元素');
     
     showPage('result-page');
 }
