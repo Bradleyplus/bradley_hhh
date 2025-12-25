@@ -31,10 +31,13 @@ if (-not [string]::IsNullOrWhiteSpace($status)) {
 }
 
 # Set remote repository URL
-# Note: You need to manually replace <your-username> and <your-repo-name>
-$username = "username"  # Replace with actual GitHub username
-$repoName = "learning-hero"  # Replace with actual repository name
+# BEFORE RUNNING: Please replace these values with your actual GitHub credentials
+$username = "Bradleyplus"  # Example: "johnsmith"
+$repoName = "bradley_hhh"  # Example: "learning-hero-platform"
 $remoteUrl = "https://github.com/$username/$repoName.git"
+
+# IMPORTANT: Make sure you have created the repository on GitHub first!
+# Go to https://github.com/new to create a new repository with the same name as above
 
 # Check if remote exists and add if it doesn't
 $remoteExists = git remote -v | Select-String -Pattern "origin"
