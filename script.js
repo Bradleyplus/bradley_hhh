@@ -1578,7 +1578,7 @@ function showResults() {
     
     const accuracy = Math.round((appState.score / (appState.questions.length * 10)) * 100);
     
-    // 确保分数正确显示
+    // 确保分数正确显示 - 修复英文模式计分问题
     const finalScoreElement = document.getElementById('final-score');
     const maxScoreElement = document.getElementById('max-score');
     const accuracyElement = document.getElementById('accuracy');
