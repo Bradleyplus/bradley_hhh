@@ -1536,7 +1536,10 @@ function selectOption(optionIndex) {
     });
     
     // 检查答案并更新分数
-    if (optionIndex === question.correctAnswer) {
+    // 修复英文模式计分问题：确保选项索引正确对应
+    const isCorrect = optionIndex === question.correctAnswer;
+    
+    if (isCorrect) {
         appState.score += 10;
         console.log('答对了！新分数:', appState.score);
         options[optionIndex].classList.add('correct');
@@ -1553,7 +1556,14 @@ function selectOption(optionIndex) {
     });
     
     // 立即更新分数显示
-    document.getElementById('score').textContent = appState.score;
+    const scoreElement = document.getElementById('score');
+    if (scoreElement) {
+        scoreElement.textContent = appState.score;
+    } else {
+        console.error('分数显示元素未找到');
+    }
+    
+    console.log('最终检查 - 当前语言:', appState.currentLanguage, '分数:', appState.score);
 }
 
 // 下一题
@@ -1579,13 +1589,33 @@ function showResults() {
     const accuracy = Math.round((appState.score / (appState.questions.length * 10)) * 100);
     
     // 确保分数正确显示 - 修复英文模式计分问题
-    const finalScoreElement = document.getElementById('final-score');
-    const maxScoreElement = document.getElementById('max-score');
-    const accuracyElement = document.getElementById('accuracy');
+    const langSuffix = appState.currentLanguage === 'en' ? '-en' : '-zh';
+    const finalScoreElement = document.getElementById('final-score' + langSuffix);
+    const maxScoreElement = document.getElementById('max-score' + langSuffix);
+    const accuracyElement = document.getElementById('accuracy' + langSuffix);
     
-    if (finalScoreElement) finalScoreElement.textContent = appState.score;
-    if (maxScoreElement) maxScoreElement.textContent = appState.questions.length * 10;
-    if (accuracyElement) accuracyElement.textContent = accuracy + '%';
+    console.log('查找的元素ID:', 'final-score' + langSuffix, 'max-score' + langSuffix, 'accuracy' + langSuffix);
+    
+    if (finalScoreElement) {
+        finalScoreElement.textContent = appState.score;
+        console.log('成功更新最终分数:', appState.score);
+    } else {
+        console.error('最终分数元素未找到');
+    }
+    
+    if (maxScoreElement) {
+        maxScoreElement.textContent = appState.questions.length * 10;
+        console.log('成功更新最大分数:', appState.questions.length * 10);
+    } else {
+        console.error('最大分数元素未找到');
+    }
+    
+    if (accuracyElement) {
+        accuracyElement.textContent = accuracy + '%';
+        console.log('成功更新正确率:', accuracy + '%');
+    } else {
+        console.error('正确率元素未找到');
+    }
     
     console.log('显示的最终分数:', finalScoreElement ? finalScoreElement.textContent : '未找到元素');
     
