@@ -534,6 +534,685 @@ const questionBanks = {
             explanation: 'GDP是国内生产总值的缩写，衡量一个国家或地区在一定时期内生产的所有最终产品和服务的市场价值。',
             explanation_en: 'GDP stands for Gross Domestic Product, measuring the market value of all final goods and services produced in a country or region during a specific period.'
         }
+    ],
+    '地理知识': [
+        {
+            question: '世界上最长的河流是？',
+            question_en: 'What is the longest river in the world?',
+            options: [
+                '尼罗河',
+                '亚马逊河',
+                '长江',
+                '密西西比河'
+            ],
+            options_en: [
+                'Nile River',
+                'Amazon River',
+                'Yangtze River',
+                'Mississippi River'
+            ],
+            correctAnswer: 0,
+            explanation: '尼罗河全长约6650公里，是世界上最长的河流。',
+            explanation_en: 'The Nile River is approximately 6,650 kilometers long, making it the longest river in the world.'
+        },
+        {
+            question: '中国的首都是？',
+            question_en: 'What is the capital of China?',
+            options: [
+                '上海',
+                '北京',
+                '广州',
+                '深圳'
+            ],
+            options_en: [
+                'Shanghai',
+                'Beijing',
+                'Guangzhou',
+                'Shenzhen'
+            ],
+            correctAnswer: 1,
+            explanation: '北京是中华人民共和国的首都。',
+            explanation_en: 'Beijing is the capital of the People\'s Republic of China.'
+        },
+        {
+            question: '哪个洲没有沙漠？',
+            question_en: 'Which continent has no deserts?',
+            options: [
+                '亚洲',
+                '欧洲',
+                '非洲',
+                '大洋洲'
+            ],
+            options_en: [
+                'Asia',
+                'Europe',
+                'Africa',
+                'Oceania'
+            ],
+            correctAnswer: 1,
+            explanation: '欧洲是唯一没有沙漠的大洲，虽然有一些半沙漠地区。',
+            explanation_en: 'Europe is the only continent without deserts, though it has some semi-desert areas.'
+        },
+        {
+            question: '珠穆朗玛峰位于哪个国家？',
+            question_en: 'Mount Everest is located in which country?',
+            options: [
+                '中国',
+                '尼泊尔',
+                '中国和尼泊尔边境',
+                '印度'
+            ],
+            options_en: [
+                'China',
+                'Nepal',
+                'China-Nepal border',
+                'India'
+            ],
+            correctAnswer: 2,
+            explanation: '珠穆朗玛峰位于中国和尼泊尔边境，是世界最高峰。',
+            explanation_en: 'Mount Everest is located on the China-Nepal border and is the world\'s highest peak.'
+        },
+        {
+            question: '哪个大洋面积最大？',
+            question_en: 'Which ocean is the largest by area?',
+            options: [
+                '大西洋',
+                '印度洋',
+                '太平洋',
+                '北冰洋'
+            ],
+            options_en: [
+                'Atlantic Ocean',
+                'Indian Ocean',
+                'Pacific Ocean',
+                'Arctic Ocean'
+            ],
+            correctAnswer: 2,
+            explanation: '太平洋是世界上最大的海洋，覆盖地球表面的约三分之一。',
+            explanation_en: 'The Pacific Ocean is the largest ocean in the world, covering about one-third of Earth\'s surface.'
+        }
+    ],
+    '体育运动': [
+        {
+            question: '世界杯足球赛每几年举办一次？',
+            question_en: 'How often is the FIFA World Cup held?',
+            options: [
+                '每2年',
+                '每3年',
+                '每4年',
+                '每5年'
+            ],
+            options_en: [
+                'Every 2 years',
+                'Every 3 years',
+                'Every 4 years',
+                'Every 5 years'
+            ],
+            correctAnswer: 2,
+            explanation: 'FIFA世界杯足球赛每4年举办一次，是世界上最重要的足球赛事。',
+            explanation_en: 'The FIFA World Cup is held every 4 years and is the most important football tournament in the world.'
+        },
+        {
+            question: '奥林匹克运动会的发源地是？',
+            question_en: 'Where did the Olympic Games originate?',
+            options: [
+                '意大利',
+                '希腊',
+                '英国',
+                '法国'
+            ],
+            options_en: [
+                'Italy',
+                'Greece',
+                'United Kingdom',
+                'France'
+            ],
+            correctAnswer: 1,
+            explanation: '古代奥林匹克运动会起源于希腊的奥林匹亚。',
+            explanation_en: 'The ancient Olympic Games originated in Olympia, Greece.'
+        },
+        {
+            question: '篮球比赛中每队上场几名球员？',
+            question_en: 'How many players from each team are on the court during a basketball game?',
+            options: [
+                '4名',
+                '5名',
+                '6名',
+                '7名'
+            ],
+            options_en: [
+                '4 players',
+                '5 players',
+                '6 players',
+                '7 players'
+            ],
+            correctAnswer: 1,
+            explanation: '标准篮球比赛中每队有5名球员同时在场上比赛。',
+            explanation_en: 'In standard basketball games, each team has 5 players on the court at the same time.'
+        },
+        {
+            question: '马拉松比赛的全程距离是多少公里？',
+            question_en: 'What is the total distance of a marathon race in kilometers?',
+            options: [
+                '38.195公里',
+                '42.195公里',
+                '45.195公里',
+                '50.195公里'
+            ],
+            options_en: [
+                '38.195 kilometers',
+                '42.195 kilometers',
+                '45.195 kilometers',
+                '50.195 kilometers'
+            ],
+            correctAnswer: 1,
+            explanation: '马拉松比赛的全程距离为42.195公里，来源于马拉松战役的距离。',
+            explanation_en: 'The marathon race is 42.195 kilometers long, derived from the distance of the Battle of Marathon.'
+        },
+        {
+            question: '网球比赛中的"大满贯"不包括？',
+            question_en: 'Which of the following is NOT part of tennis Grand Slam?',
+            options: [
+                '温布尔登',
+                '法网',
+                '美网',
+                '奥运会'
+            ],
+            options_en: [
+                'Wimbledon',
+                'French Open',
+                'US Open',
+                'Olympic Games'
+            ],
+            correctAnswer: 3,
+            explanation: '网球大满贯包括温布尔登、法网、美网和澳网，奥运会不是大满贯赛事。',
+            explanation_en: 'The tennis Grand Slam includes Wimbledon, French Open, US Open, and Australian Open. The Olympic Games is not a Grand Slam event.'
+        }
+    ],
+    '天文科学': [
+        {
+            question: '太阳系中最大的行星是？',
+            question_en: 'What is the largest planet in our solar system?',
+            options: [
+                '土星',
+                '木星',
+                '海王星',
+                '天王星'
+            ],
+            options_en: [
+                'Saturn',
+                'Jupiter',
+                'Neptune',
+                'Uranus'
+            ],
+            correctAnswer: 1,
+            explanation: '木星是太阳系中最大的行星，质量比其他所有行星的总和还大。',
+            explanation_en: 'Jupiter is the largest planet in our solar system, with a mass greater than all other planets combined.'
+        },
+        {
+            question: '地球绕太阳公转一圈需要多长时间？',
+            question_en: 'How long does it take for Earth to complete one orbit around the Sun?',
+            options: [
+                '365天',
+                '366天',
+                '365.25天',
+                '364天'
+            ],
+            options_en: [
+                '365 days',
+                '366 days',
+                '365.25 days',
+                '364 days'
+            ],
+            correctAnswer: 2,
+            explanation: '地球绕太阳公转一圈需要365.25天，这就是为什么有闰年的原因。',
+            explanation_en: 'Earth takes 365.25 days to orbit the Sun, which is why we have leap years.'
+        },
+        {
+            question: '月球上沒有的是什么？',
+            question_en: 'What is NOT found on the Moon?',
+            options: [
+                '大气层',
+                '环形山',
+                '灰尘',
+                '重力'
+            ],
+            options_en: [
+                'Atmosphere',
+                'Craters',
+                'Dust',
+                'Gravity'
+            ],
+            correctAnswer: 0,
+            explanation: '月球几乎没有大气层，这导致温度差异极大且无法传播声音。',
+            explanation_en: 'The Moon has almost no atmosphere, causing extreme temperature differences and preventing sound transmission.'
+        },
+        {
+            question: '北极星位于哪个星座？',
+            question_en: 'Which constellation is the North Star located in?',
+            options: [
+                '大熊座',
+                '小熊座',
+                '天鹅座',
+                '仙后座'
+            ],
+            options_en: [
+                'Ursa Major',
+                'Ursa Minor',
+                'Cygnus',
+                'Cassiopeia'
+            ],
+            correctAnswer: 1,
+            explanation: '北极星位于小熊座，是小熊座中最亮的恒星。',
+            explanation_en: 'The North Star is located in Ursa Minor and is the brightest star in the Little Dipper constellation.'
+        },
+        {
+            question: '光从太阳到达地球需要多长时间？',
+            question_en: 'How long does it take for light to travel from the Sun to Earth?',
+            options: [
+                '8分钟',
+                '8秒钟',
+                '8小时',
+                '8天'
+            ],
+            options_en: [
+                '8 minutes',
+                '8 seconds',
+                '8 hours',
+                '8 days'
+            ],
+            correctAnswer: 0,
+            explanation: '光从太阳到达地球大约需要8分20秒。',
+            explanation_en: 'Light takes approximately 8 minutes and 20 seconds to travel from the Sun to Earth.'
+        }
+    ],
+    '音乐艺术': [
+        {
+            question: '被誉为"乐圣"的作曲家是？',
+            question_en: 'Which composer is known as the "Sage of Music"?',
+            options: [
+                '莫扎特',
+                '贝多芬',
+                '巴赫',
+                '舒伯特'
+            ],
+            options_en: [
+                'Mozart',
+                'Beethoven',
+                'Bach',
+                'Schubert'
+            ],
+            correctAnswer: 1,
+            explanation: '贝多芬被誉为"乐圣"，是古典音乐史上最重要的作曲家之一。',
+            explanation_en: 'Beethoven is known as the "Sage of Music" and is one of the most important composers in classical music history.'
+        },
+        {
+            question: '《蒙娜丽莎》是哪位画家的作品？',
+            question_en: 'Who painted the "Mona Lisa"?',
+            options: [
+                '米开朗基罗',
+                '达芬奇',
+                '拉斐尔',
+                '毕加索'
+            ],
+            options_en: [
+                'Michelangelo',
+                'Leonardo da Vinci',
+                'Raphael',
+                'Picasso'
+            ],
+            correctAnswer: 1,
+            explanation: '《蒙娜丽莎》是意大利文艺复兴时期画家达芬奇的代表作。',
+            explanation_en: 'The "Mona Lisa" is a masterpiece by Italian Renaissance artist Leonardo da Vinci.'
+        },
+        {
+            question: '中国京剧的四大名旦不包括？',
+            question_en: 'Which of the following is NOT one of the Four Great Dan in Peking Opera?',
+            options: [
+                '梅兰芳',
+                '程砚秋',
+                '尚小云',
+                '荀慧生'
+            ],
+            options_en: [
+                'Mei Lanfang',
+                'Cheng Yanqiu',
+                'Shang Xiaoyun',
+                'Xun Huisheng'
+            ],
+            correctAnswer: 3,
+            explanation: '中国京剧四大名旦是梅兰芳、程砚秋、尚小云、荀慧生。',
+            explanation_en: 'The Four Great Dan in Peking Opera are Mei Lanfang, Cheng Yanqiu, Shang Xiaoyun, and Xun Huisheng.'
+        },
+        {
+            question: '被称为"现代艺术之父"的是？',
+            question_en: 'Who is known as the "Father of Modern Art"?',
+            options: [
+                '塞尚',
+                '梵高',
+                '毕加索',
+                '莫奈'
+            ],
+            options_en: [
+                'Cézanne',
+                'Van Gogh',
+                'Picasso',
+                'Monet'
+            ],
+            correctAnswer: 0,
+            explanation: '保罗·塞尚被称为"现代艺术之父"，对现代艺术发展影响深远。',
+            explanation_en: 'Paul Cézanne is known as the "Father of Modern Art" and had profound influence on modern art development.'
+        },
+        {
+            question: '中国传统绘画中的"墨分五色"不包括？',
+            question_en: 'Which color is NOT included in the "Five Tones of Ink" in traditional Chinese painting?',
+            options: [
+                '浓',
+                '淡',
+                '干',
+                '紫'
+            ],
+            options_en: [
+                'Dark',
+                'Light',
+                'Dry',
+                'Purple'
+            ],
+            correctAnswer: 3,
+            explanation: '墨分五色指的是浓、淡、干、湿、焦五种不同的墨色层次。',
+            explanation_en: 'The "Five Tones of Ink" refers to five different ink color levels: dark, light, dry, wet, and scorched.'
+        }
+    ],
+    '环境科学': [
+        {
+            question: '温室效应的主要原因是什么？',
+            question_en: 'What is the main cause of the greenhouse effect?',
+            options: [
+                '氧气增加',
+                '二氧化碳等温室气体增加',
+                '植物减少',
+                '水资源减少'
+            ],
+            options_en: [
+                'Increased oxygen',
+                'Increased greenhouse gases like carbon dioxide',
+                'Reduced plant life',
+                'Reduced water resources'
+            ],
+            correctAnswer: 1,
+            explanation: '温室效应主要由二氧化碳、甲烷等温室气体增加导致，这些气体阻止热量散失到太空。',
+            explanation_en: 'The greenhouse effect is mainly caused by increased greenhouse gases like carbon dioxide and methane, which trap heat in the atmosphere.'
+        },
+        {
+            question: '什么是可再生能源？',
+            question_en: 'What are renewable energy sources?',
+            options: [
+                '煤炭',
+                '石油',
+                '太阳能',
+                '天然气'
+            ],
+            options_en: [
+                'Coal',
+                'Oil',
+                'Solar energy',
+                'Natural gas'
+            ],
+            correctAnswer: 2,
+            explanation: '可再生能源是指在自然界中可以循环再生的能源，如太阳能、风能、水能等。',
+            explanation_en: 'Renewable energy sources are energy that can be regenerated naturally, such as solar, wind, and hydroelectric power.'
+        },
+        {
+            question: '酸雨的主要成分是什么？',
+            question_en: 'What are the main components of acid rain?',
+            options: [
+                '硫酸和硝酸',
+                '盐酸和氢氟酸',
+                '碳酸和磷酸',
+                '醋酸和柠檬酸'
+            ],
+            options_en: [
+                'Sulfuric acid and nitric acid',
+                'Hydrochloric acid and hydrofluoric acid',
+                'Carbonic acid and phosphoric acid',
+                'Acetic acid and citric acid'
+            ],
+            correctAnswer: 0,
+            explanation: '酸雨主要由硫酸和硝酸组成，这些酸性物质来源于工业排放的二氧化硫和氮氧化物。',
+            explanation_en: 'Acid rain mainly consists of sulfuric acid and nitric acid, which come from industrial emissions of sulfur dioxide and nitrogen oxides.'
+        },
+        {
+            question: '臭氧层的主要作用是？',
+            question_en: 'What is the main function of the ozone layer?',
+            options: [
+                '提供氧气',
+                '吸收紫外线',
+                '调节温度',
+                '产生降雨'
+            ],
+            options_en: [
+                'Provide oxygen',
+                'Absorb ultraviolet radiation',
+                'Regulate temperature',
+                'Generate rainfall'
+            ],
+            correctAnswer: 1,
+            explanation: '臭氧层的主要作用是吸收太阳发射的紫外线，保护地球上的生物免受辐射伤害。',
+            explanation_en: 'The main function of the ozone layer is to absorb ultraviolet radiation from the Sun, protecting life on Earth from harmful radiation.'
+        },
+        {
+            question: '生物多样性的三个层次不包括？',
+            question_en: 'Which of the following is NOT a level of biodiversity?',
+            options: [
+                '物种多样性',
+                '基因多样性',
+                '生态系统多样性',
+                '气候多样性'
+            ],
+            options_en: [
+                'Species diversity',
+                'Genetic diversity',
+                'Ecosystem diversity',
+                'Climate diversity'
+            ],
+            correctAnswer: 3,
+            explanation: '生物多样性包括物种多样性、基因多样性和生态系统多样性三个层次。',
+            explanation_en: 'Biodiversity includes three levels: species diversity, genetic diversity, and ecosystem diversity.'
+        }
+    ],
+    '心理学': [
+        {
+            question: '心理学之父是谁？',
+            question_en: 'Who is considered the father of psychology?',
+            options: [
+                '弗洛伊德',
+                '冯特',
+                '荣格',
+                '华生'
+            ],
+            options_en: [
+                'Freud',
+                'Wundt',
+                'Jung',
+                'Watson'
+            ],
+            correctAnswer: 1,
+            explanation: '威廉·冯特被认为是心理学之父，他在1879年建立了世界上第一个心理学实验室。',
+            explanation_en: 'Wilhelm Wundt is considered the father of psychology, establishing the world\'s first psychology laboratory in 1879.'
+        },
+        {
+            question: '马斯洛需求层次理论的最高层次是？',
+            question_en: 'What is the highest level in Maslow\'s hierarchy of needs?',
+            options: [
+                '安全需求',
+                '社交需求',
+                '自我实现需求',
+                '尊重需求'
+            ],
+            options_en: [
+                'Safety needs',
+                'Social needs',
+                'Self-actualization needs',
+                'Esteem needs'
+            ],
+            correctAnswer: 2,
+            explanation: '自我实现需求是马斯洛需求层次理论的最高层次，指个人潜能的充分发挥。',
+            explanation_en: 'Self-actualization is the highest level in Maslow\'s hierarchy of needs, referring to the full realization of personal potential.'
+        },
+        {
+            question: '记忆的三个基本过程不包括？',
+            question_en: 'Which of the following is NOT one of the three basic processes of memory?',
+            options: [
+                '编码',
+                '存储',
+                '提取',
+                '删除'
+            ],
+            options_en: [
+                'Encoding',
+                'Storage',
+                'Retrieval',
+                'Deletion'
+            ],
+            correctAnswer: 3,
+            explanation: '记忆的三个基本过程是编码、存储和提取，不包括删除。',
+            explanation_en: 'The three basic processes of memory are encoding, storage, and retrieval, not deletion.'
+        },
+        {
+            question: '认知失调理论是由谁提出的？',
+            question_en: 'Who proposed the theory of cognitive dissonance?',
+            options: [
+                '皮亚杰',
+                '费斯廷格',
+                '班杜拉',
+                '科尔伯格'
+            ],
+            options_en: [
+                'Piaget',
+                'Festinger',
+                'Bandura',
+                'Kohlberg'
+            ],
+            correctAnswer: 1,
+            explanation: '认知失调理论是由利昂·费斯廷格在1957年提出的心理学理论。',
+            explanation_en: 'The theory of cognitive dissonance was proposed by Leon Festinger in 1957.'
+        },
+        {
+            question: '情商(EQ)的概念是谁推广的？',
+            question_en: 'Who popularized the concept of Emotional Intelligence (EQ)?',
+            options: [
+                '弗洛伊德',
+                '加德纳',
+                '丹尼尔·戈尔曼',
+                '斯坦伯格'
+            ],
+            options_en: [
+                'Freud',
+                'Gardner',
+                'Daniel Goleman',
+                'Sternberg'
+            ],
+            correctAnswer: 2,
+            explanation: '丹尼尔·戈尔曼在1995年出版了《情商》一书，推广了情商概念。',
+            explanation_en: 'Daniel Goleman popularized the concept of Emotional Intelligence with his 1995 book "Emotional Intelligence".'
+        }
+    ],
+    '医学常识': [
+        {
+            question: '人体最大的器官是？',
+            question_en: 'What is the largest organ in the human body?',
+            options: [
+                '肝脏',
+                '肺脏',
+                '皮肤',
+                '大脑'
+            ],
+            options_en: [
+                'Liver',
+                'Lungs',
+                'Skin',
+                'Brain'
+            ],
+            correctAnswer: 2,
+            explanation: '皮肤是人体最大的器官，成年人皮肤总面积约1.5-2平方米。',
+            explanation_en: 'Skin is the largest organ in the human body, with a total area of approximately 1.5-2 square meters in adults.'
+        },
+        {
+            question: '血液由什么细胞运输氧气？',
+            question_en: 'What cells in blood transport oxygen?',
+            options: [
+                '白细胞',
+                '红细胞',
+                '血小板',
+                '血浆'
+            ],
+            options_en: [
+                'White blood cells',
+                'Red blood cells',
+                'Platelets',
+                'Plasma'
+            ],
+            correctAnswer: 1,
+            explanation: '红细胞含有血红蛋白，负责运输氧气到身体各部位。',
+            explanation_en: 'Red blood cells contain hemoglobin and are responsible for transporting oxygen to various parts of the body.'
+        },
+        {
+            question: '人体共有多少块骨骼？',
+            question_en: 'How many bones are in the human body?',
+            options: [
+                '196块',
+                '206块',
+                '216块',
+                '226块'
+            ],
+            options_en: [
+                '196 bones',
+                '206 bones',
+                '216 bones',
+                '226 bones'
+            ],
+            correctAnswer: 1,
+            explanation: '成年人骨骼系统由206块骨骼组成。',
+            explanation_en: 'The adult human skeletal system consists of 206 bones.'
+        },
+        {
+            question: '什么是抗生素？',
+            question_en: 'What are antibiotics?',
+            options: [
+                '抗病毒的药物',
+                '杀死细菌的药物',
+                '止痛的药物',
+                '退烧的药物'
+            ],
+            options_en: [
+                'Antiviral drugs',
+                'Bacteria-killing drugs',
+                'Pain relief drugs',
+                'Fever-reducing drugs'
+            ],
+            correctAnswer: 1,
+            explanation: '抗生素是能够杀死或抑制细菌生长的药物，对病毒无效。',
+            explanation_en: 'Antibiotics are drugs that can kill or inhibit bacterial growth, but they are ineffective against viruses.'
+        },
+        {
+            question: '人体正常体温大约是多少摄氏度？',
+            question_en: 'What is the normal human body temperature in Celsius?',
+            options: [
+                '36-37°C',
+                '35-36°C',
+                '37-38°C',
+                '38-39°C'
+            ],
+            options_en: [
+                '36-37°C',
+                '35-36°C',
+                '37-38°C',
+                '38-39°C'
+            ],
+            correctAnswer: 0,
+            explanation: '人体正常体温大约在36-37摄氏度之间。',
+            explanation_en: 'Normal human body temperature is approximately 36-37 degrees Celsius.'
+        }
     ]
 };
 
